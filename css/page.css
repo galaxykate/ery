@@ -1,0 +1,292 @@
+html {
+	 font-family: "Trebuchet MS", Helvetica, sans-serif;
+	 width: 100%;
+	height: 100%;
+}
+
+
+html {
+	background-image: url("img/retina_wood.png")
+}
+
+@font-face {
+	font-family: basic;
+	src: url(fonts/OpenSans-CondLight.ttf);
+
+}
+
+.content {
+	position: relative;
+	flex-direction: column;
+	flex: 1;
+	
+}
+
+.parameterRow {
+	display: flex;
+	flex-direction: row;
+}
+.parameterRow .label {
+	font-style: italic;
+	color: rgba(0, 0, 0, .4);
+}
+
+.parameterRow .content {
+	padding: 1px 1px 1px 6px;
+}
+
+.panel {
+	display: flex;
+	flex-direction: column;
+	background-image: url("img/paper.jpg");
+	background-color: white;
+	position: absolute;
+	  box-sizing: border-box;
+	padding: 4px;
+	border: solid 1px hsla(40, 50%, 10%, .2);
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, .1);
+	overflow: scroll;
+}
+
+.header {
+	font-style: italic;
+	font-size: 14px;
+	color: rgba(0, 0, 0, .4);
+	min-height: 20px;
+}
+
+#main-cols {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+
+}
+
+.section  {
+	border-radius: 10px;
+	padding: 4px;
+	margin: 3px;
+	border: solid 1px hsla(40, 50%, 10%, .2);
+}
+
+.line {
+	display: flex;
+}
+
+.line .content {
+	margin: 2px;
+	flex: 1;
+	background-color: hsla(40, 50%, 99%, .3);
+	border-radius: 10px;
+	border: solid 1px hsla(40, 50%, 19%, .3);
+}
+
+.line .content .string-item {
+	  font-family: "Courier New", Courier, monospace;
+	white-space: nowrap;
+	flex: 0;
+	display: inline-block;
+	border-radius: 10px;
+	padding: 2px 4px;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+	background-color: hsla(40, 50%, 99%, 1);
+}
+
+.line .label {
+	padding: 1px 2px;
+	border-radius: 9px;
+	display: flex;
+	
+}
+
+.array {
+	border: solid 1px hsla(40, 50%, 10%, .2);
+}
+
+.array-item {
+	border-radius: 9px;
+	border: solid 1px hsla(40, 50%, 10%, .2);
+	display: inline-block;
+	margin: 3px;
+}
+
+
+.item-plaintext {
+	background-color: hsla(240, 0%, 95%, 1);
+}
+.item-expression {
+	background-color: hsla(340, 50%, 90%, 1);
+}
+.item-tag {
+	background-color: hsla(140, 50%, 90%, 1);
+}
+
+.chat {
+	display: flex;
+	flex-direction: column;
+}
+
+.chatapp {
+	position: relative;
+	flex: 1;
+	flex-direction: column;
+	background-color: hsla(240, 50%, 90%, 1);
+}
+
+.chat-log {
+	overflow: scroll;
+	position: relative;
+flex: 1;
+	margin: 3px;
+	box-shadow: inset 1px 1px 9px hsla(240, 20%, 20%,.2);
+	background-color:  hsla(240, 20%, 60%, 1);
+
+		border-radius: 20px;
+	border: solid 1px hsla(40, 50%, 10%, .2);
+}
+.chat-inputrow {
+	display: flex;
+		min-height: 30px;
+}
+
+.chat-input {
+	margin: 4px;
+	flex: 1;
+		border-radius: 20px;
+	border: solid 1px hsla(40, 50%, 10%, .2);
+	background-color: white;
+}
+
+.chatapp button {
+	padding: 1px;
+	margin: 5px;
+	height: 20px;
+	width: 20px;
+	border-radius: 30px;
+}
+
+.chatapp input {
+	width: 100%;
+	background: none;
+	border: none;
+
+}
+
+
+.chatapp .chat-bubble {
+	display: inline-block;
+	padding: 3px 5px;
+	margin: 2px 5px;
+	border: solid 1px hsla(40, 50%, 10%, .2);
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, .4);
+	transform: scale(.1, .1)
+}
+
+
+.chat-bubblerow-0 {
+	text-align: left;
+	}
+.chat-bubblerow-1 {
+		text-align: right;
+	}
+
+.chat-bubble-0 {
+
+	position: relative;
+	left: 0px;
+	border-radius: 15px 15px 15px 0px;
+	border: solid 1px hsla(340, 10%, 10%, 1);
+	background-color: hsla(340, 10%, 98%, 1);
+}
+
+.chat-bubble-1 {
+	position: relative;
+	right: 0px;
+	border-radius: 15px 0px 15px 15px;
+	border: solid 1px hsla(240, 50%, 10%, 1);
+	background-color: hsla(240, 50%, 90%, 1);
+}
+
+.mapview {
+	width: 100%;
+	height: 100%;
+	
+	
+}
+
+.mapview-root {
+	position: absolute;
+	width: 3px;
+	height: 3px;
+	left: 50%;
+	top: 50%;
+	background-color: hsla(240, 50%, 0%, 1);
+}
+.mapview-stateroot .pad {
+	background-color: hsla(150, 30%, 90%, 1);
+		box-shadow: 1px 2px 4px rgba(0, 0, 0, .4);
+
+}
+
+.mapview-stateroot.active .pad {
+	background-color: hsla(190, 30%, 50%, 1);
+	box-shadow: 1px 2px 7px rgba(0, 0, 0, 1);
+
+}
+
+
+
+.exitrow {
+	border-radius: 30px;
+		background-color: hsla(140, 0%, 40%, .2);
+ 		margin: 2px;
+}
+
+.exitrow .conditions {
+	width: 160px;
+	border-radius: 30px;
+	display: inline-block;
+ 	
+}
+.exitrow .target {
+	display: inline-block;
+	padding: 2px 4px;
+	overflow: hidden;
+		border-radius: 20px;
+	border: solid 1px hsla(40, 50%, 10%, .2);
+}
+
+
+.exitrow .open {
+	background-color: hsla(290, 50%, 90%, .3);
+}
+.exitrow .active {
+	background-color: hsla(240, 50%, 80%, .3);
+}
+
+.conditionview {
+	display: inline-block;
+	position: relative;
+	right: 0px;
+
+	border-radius: 15px;
+	margin: 2px;
+	padding: 2px 4px;
+
+}
+
+.conditionview.true {
+	border: solid 1px hsla(170, 50%, 50%, 1);
+	background-color: hsla(170, 90%, 80%, 1);
+}
+
+.conditionview {
+	border: solid 1px hsla(20, 50%, 50%, 1);
+	background-color: hsla(20, 90%, 80%, 1);
+}
+.conditionview-reason {
+	font-size: 8px;
+	color: hsla(20, 50%, 50%, 1);
+}
