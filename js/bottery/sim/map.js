@@ -176,7 +176,11 @@ function parseAction(preparsed) {
 
 	console.log(preparsed)
 	if (preparsed.splitter === "=") {
-		console.log("SEETTTTTERRR", preparsed)
+		return {
+			type: "setter",
+			path:  parseKey(preparsed.sections[0]),
+			value: parseExpression( preparsed.sections[1])
+		}
 	} else {
 
 		if (preparsed.sections.length === 1) {
@@ -325,6 +329,7 @@ function BotteryExit(rawExit) {
 		if (parsed.sections[1].splitter === " ") {
 			this.target = parseTarget(parsed.sections[1].sections[0]);
 			this.actions = parseActions(parsed.sections[1].sections.slice(1));
+			console.log(this.actions);
 		} else {
 			this.target = parseTarget(parsed.sections[1]);
 			this.actions = [];

@@ -232,13 +232,22 @@ Pointer.prototype.evaluateCondition = function(condition) {
 Pointer.prototype.perform = function(action) {
 	switch (action.type) {
 		case "output":
+			
 			this.entity.output("say", action.value)
+			
+			break;
+		case "setter":
+			console.log("SETTTTT", action)
+
+			let value = this.evaluateExpression(action.value);
+			this.entity.set(action.path, value)
 
 			break;
 
 
 		default:
-			console.warn("unknown action type:" + action.type, action.raw)
+			this.evaluateExpression(action)
+			//console.warn("unknown action type:" + action.type, action.raw)
 	}
 }
 

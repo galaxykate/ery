@@ -1,6 +1,8 @@
+let TRACERYOBJ
+
 function createBottery(mainMap, handlers) {
 	let main = new BotteryEntity(mainMap, handlers);
-	
+
 
 
 	return main;
@@ -20,8 +22,8 @@ function BotteryEntity(mainMap, handlers) {
 	this.map = mainMap
 
 	this.handlers = handlers;
-		this.grammar = new TraceryGrammar(this.map.grammar)
-
+	this.grammar = new TraceryGrammar(this.map.grammar)
+	TRACERYOBJ = this;
 
 	addToBlackboard(this.blackboard, this.map.blackboard)
 
@@ -51,7 +53,7 @@ BotteryEntity.prototype.set = function(path, value) {
 }
 
 BotteryEntity.prototype.get = function(path) {
-		if (typeof path === "string")
+	if (typeof path === "string")
 		path = path.split("/")
 
 	if (path[0] == "..")
@@ -68,6 +70,8 @@ BotteryEntity.prototype.onMovePointer = function(pointer) {
 }
 
 BotteryEntity.prototype.output = function(channel, data) {
+
+	data = this.grammar.flatten(data);
 	if (this.handlers.onOutput)
 		this.handlers.onOutput(channel, data)
 	else

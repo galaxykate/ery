@@ -29,7 +29,7 @@ let testMapBetrayal = {
 		startGame: {
 			onEnterSay: "How many players?",
 			exits: [
-			"'#number#' ->setup set('playerCount', parseInt(TEMPLATE_0))",
+			"'#number#' ->setup playerCount=parseInt(TEMPLATE_0)",
 				"'#use# #weapon#' inList(TEMPLATE_1, inventory) ->* weapon=TEMPLATE_1",
 				//"'*' ->* 'Sorry, say a number'"
 			],
@@ -40,7 +40,7 @@ let testMapBetrayal = {
 			exits: "wait:1 ->playerTurn",
 		},
 		playerTurn: {
-			onEnterSay: "Player #/playerIndex#'s turn.  You are in #player/player",
+			onEnterSay: "Player #/playerIndex#'s turn.  You are in #player/player#",
 			exits: "wait:(3 + players+ 2^random(0,players)) ->mansionUpdate",
 			onExit: "turnover(players,playerIndex)"
 		},

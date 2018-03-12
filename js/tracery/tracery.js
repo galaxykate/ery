@@ -51,6 +51,13 @@ TraceryGrammar.prototype.getRules = function(key) {
 
 TraceryGrammar.prototype.getRule = function(key) {
 	if (this.symbols[key] === undefined || this.symbols[key].length === 0) {
+
+		if (key.startsWith("/")) {
+			console.log(TRACERYOBJ, key.split("/").slice(1))
+			console.log(TRACERYOBJ.get(key.split("/").slice(1)))
+		return "" + TRACERYOBJ.get(key.split("/").slice(1))
+	
+		}
 		console.warn("No rules for " + inQuotes(key))
 		return "[[" + key + "]]"
 	}
@@ -62,13 +69,13 @@ TraceryGrammar.prototype.flatten = function(rule) {
 
 	let exp =  new TraceryExpansion(this, rule)
 	
-return exp.root.finished;
+	return exp.root.finished;
 }
 
 
 TraceryGrammar.prototype.createExpansion = function(rule) {
 
-	return new TraceryExpansion(this, rule)
+	return new TraceryExpansion(this, rule, object)
 
 }
 
@@ -123,6 +130,7 @@ TraceryExpansion.prototype.applyMod = function(modAddress, value, parameters) {
 		}
 	} else {
 		console.warn("path-address modifiers not implemented")
+
 		return value + ".[[" + modAddress + "]]";
 	}
 }
